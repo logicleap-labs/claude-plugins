@@ -1,0 +1,42 @@
+<h1 align="center">LogicLeap Labs · Claude Code plugins</h1>
+
+<p align="center">
+  Open tooling for shipping AI output that's actually good.<br>
+  By <a href="https://x.com/logicleaplabs">Josh Matthews</a> · <a href="https://logic-leap.co.uk">LogicLeap Ltd</a>
+</p>
+
+---
+
+Most AI coding failures aren't capability failures — they're **looking** failures. The model can spot the blank sidebar item, the dead empty band, the same row rendered seven times… it just doesn't *check*. These plugins add the forcing functions that make it check.
+
+## Install
+
+```bash
+# add this marketplace once
+claude plugin marketplace add logicleap-labs/claude-plugins
+
+# then install any plugin
+claude plugin install visual-quality
+```
+
+Restart Claude Code so hooks load. Disable any time with `claude plugin disable <name>`.
+
+## Plugins
+
+### `visual-quality`
+A hard quality gate for anything with pixels. Built because Claude kept doing `compile → screenshot → "looks good" → done` and shipping UI with defects a human catches in two seconds.
+
+- **Skill `visual-self-review`** — the method. One rule does the work: *you don't get to judge a screen until you've transcribed it.* Read every element, account for every region, read every list in full → then sweep a 12-class defect taxonomy → performance pass → fix & re-screenshot → hard Definition of Done. Works in Xcode/SwiftUI, iOS/macOS, web, Electron, generated mockups.
+- **Stop hook** — refuses to let a turn end if UI was edited/screenshotted but never reviewed. No-op on non-UI turns, fails open, loop-capped, kill switch (`touch .visual-quality-off`).
+- **`/visual-quality:visual-review`** and **`/visual-quality:visual-qc`** — run the review / a full automated QC sweep on demand.
+- **`visual-reviewer` subagent** — a second pair of eyes that didn't write the code.
+
+→ [full docs](plugins/visual-quality/README.md)
+
+## What this is
+
+The start of a longer-term project: open-sourcing the tools and techniques behind how I actually use AI to build production software. More plugins, comparisons, and write-ups coming — follow along on [X](https://x.com/logicleaplabs) (and a YouTube channel soon).
+
+## License
+
+MIT © Josh Matthews / LogicLeap Ltd. See [LICENSE](LICENSE).

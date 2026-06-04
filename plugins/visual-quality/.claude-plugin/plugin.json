@@ -1,0 +1,6 @@
+{
+  "name": "visual-quality",
+  "version": "0.1.0",
+  "description": "Hard quality gate for any work with pixels. A skill that forces transcribe-before-you-judge review of the ACTUAL rendered UI (Xcode/SwiftUI, web, Electron, mockups), a Stop hook that refuses to let a turn end when UI was edited but never rendered/reviewed, an automated QC command, and an independent adversarial reviewer subagent. Stops 'compiles → screenshot → looks good → done' from shipping obvious defects.",
+  "author": { "name": "Josh Matthews" }
+}
