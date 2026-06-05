@@ -1,4 +1,8 @@
-<h1 align="center">LogicLeap Labs · Claude Code plugins</h1>
+<p align="center">
+  <img src="assets/og-image.png" alt="LogicLeap Labs — Make AI output actually good." width="820">
+</p>
+
+<h1 align="center">Claude Code plugins</h1>
 
 <p align="center">
   Open tooling for shipping AI output that's actually good.<br>
