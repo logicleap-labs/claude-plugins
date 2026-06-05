@@ -1,0 +1,6 @@
+{
+  "name": "no-debug",
+  "version": "0.1.0",
+  "description": "Blocks turns that end with leftover debug noise. A skill for stripping debug prints and a Stop hook that detects high-signal debug-only statements — console.log/debugger, pdb.set_trace/breakpoint, binding.pry/byebug, dd()/var_dump, dbg!() — in code edited this turn, refusing 'done' until the noise is gone or you explicitly mark it NO-DEBUG: INTENTIONAL. Lets console.error/warn and real loggers through.",
+  "author": { "name": "Josh Matthews" }
+}

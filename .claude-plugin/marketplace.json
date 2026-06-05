@@ -38,6 +38,11 @@
       "name": "no-slop",
       "source": "./plugins/no-slop",
       "description": "Blocks 'done' when the prose you just wrote reads like AI slop. Skill + Stop hook: detect high-precision AI tells — 'delve into', 'it's worth noting that', 'a testament to', 'navigate the complexities', 'rich tapestry', em-dash pile-ups — in prose edited this turn (.md/.mdx/.txt/.rst), and refuse the turn until it's plain or marked NO-SLOP: INTENTIONAL. The prose complement to no-stub. Stops 'write the README → pad it with clichés → done' from shipping."
+    },
+    {
+      "name": "no-debug",
+      "source": "./plugins/no-debug",
+      "description": "Blocks 'done' when the code you just wrote still has leftover debug noise. Skill + Stop hook: detect high-signal debug markers — console.log/debugger, pdb.set_trace/breakpoint, binding.pry/byebug, dd()/var_dump, dbg!(), debug-ish prints — in code edited this turn, and refuse the turn until it's stripped or marked NO-DEBUG: INTENTIONAL. Lets console.error/warn and real loggers through. Stops 'add a console.log to check → forget it → done' from shipping."
     }
   ]
 }

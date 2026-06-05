@@ -82,6 +82,15 @@ Refuses to let a turn end with AI-tell "slop" prose. The writing complement to `
 
 → [full docs](plugins/no-slop/README.md)
 
+### `no-debug`
+Refuses to let a turn end with leftover debug noise. Built because "add a `console.log` to check the value → forget it's there → done" ships internals to stdout and tells the next reader the code was never cleaned up.
+
+- **Skill `no-debug`** — sweep the prints you added while working it out, delete the one-offs, and promote anything you actually want logged to a real logger instead of a stray `console.log`.
+- **Stop hook** — blocks end-of-turn when code edited this turn still contains high-signal debug markers: `console.log`/`console.debug`/`console.trace`/`console.dir`/`debugger`, `pdb.set_trace()`/`breakpoint()`/`import pdb`, `binding.pry`/`binding.irb`/`byebug`, `var_dump()`/`print_r()`/`dd()`/`dump()`/`error_log()`, `dbg!()`, and debug-ish `print`/`fmt.Println`/`System.out.println` lines. Never flags `console.error`/`console.warn` or real loggers (`logger.info`, `winston`, `pino`, `slog`, `logging.getLogger`), skips commented-out lines, only flags ambiguous prints when the line carries debug content (`DEBUG`/`here`/`===`/an emoji), fails open, kill switch (`touch .no-debug-off`). Override an intentional CLI print with `NO-DEBUG: INTENTIONAL — <reason>`.
+- **`/no-debug:no-debug`** — on-demand scan-and-strip sweep of your session's edits.
+
+→ [full docs](plugins/no-debug/README.md)
+
 ## What this is
 
 The start of a longer-term project: open-sourcing the tools and techniques behind how I actually use AI to build production software. More plugins, comparisons, and write-ups coming — follow along on [X](https://x.com/logicleaplabs) (and a YouTube channel soon).
