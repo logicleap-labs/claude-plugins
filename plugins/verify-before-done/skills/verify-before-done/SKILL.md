@@ -76,4 +76,4 @@ False positive (docs-only change, user said skip tests): `touch .verify-before-d
 ## Pairs with
 
 - **`visual-quality`** — run *after* code verifies; screenshots are not tests.
-- **`scope-guard`** (coming) — don't verify the wrong files by editing the whole tree.
+- **`scope-guard`** — don't verify the wrong files by editing the whole tree.

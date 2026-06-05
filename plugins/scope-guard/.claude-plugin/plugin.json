@@ -1,0 +1,6 @@
+{
+  "name": "scope-guard",
+  "version": "0.1.0",
+  "description": "Keeps an agent in its lane. Declare the files a task is allowed to touch, and a PreToolUse hook blocks any Edit/Write outside that scope — stopping drive-by edits, 'while I'm here' refactors, and one agent clobbering another's files on a shared tree.",
+  "author": { "name": "Josh Matthews" }
+}

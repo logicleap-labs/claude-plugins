@@ -42,6 +42,15 @@ Forces evidence before "done" on any code change. Built because "clean compile" 
 
 → [full docs](plugins/verify-before-done/README.md)
 
+### `scope-guard`
+Keeps an agent in its lane. Built because the most expensive edits are the ones nobody asked for — the "while I'm here" refactor, the reformatted file two directories away, one agent clobbering another's work on a shared tree.
+
+- **Skill `scope-guard`** — declare the narrowest set of files a task may touch, then decide deliberately (never widen silently) when you hit the edge.
+- **PreToolUse hook** — blocks any `Edit`/`Write` outside the declared scope (`.scope-guard` file, `SCOPE_GUARD_PATHS` env, or a `SCOPE-GUARD:` sentinel). Silent no-op until you opt in, fails open, kill switch (`touch .scope-guard-off`).
+- **`/scope-guard:scope`** — declare scope on demand.
+
+→ [full docs](plugins/scope-guard/README.md)
+
 ## What this is
 
 The start of a longer-term project: open-sourcing the tools and techniques behind how I actually use AI to build production software. More plugins, comparisons, and write-ups coming — follow along on [X](https://x.com/logicleaplabs) (and a YouTube channel soon).

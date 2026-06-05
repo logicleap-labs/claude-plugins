@@ -18,6 +18,11 @@
       "name": "verify-before-done",
       "source": "./plugins/verify-before-done",
       "description": "Blocks 'done' when code changed but nothing was run to verify it. Skill + Stop hook: require test/build/lint/smoke evidence or VERIFY-BEFORE-DONE: PASS. Stops 'edited the handler → should work → done' without proof."
+    },
+    {
+      "name": "scope-guard",
+      "source": "./plugins/scope-guard",
+      "description": "Keeps an agent in its lane. Declare the files a task may touch (a .scope-guard file, an env var, or a SCOPE-GUARD: sentinel) and a PreToolUse hook blocks any Edit/Write outside that set — stopping drive-by edits, 'while I'm here' refactors, and one agent clobbering another's files on a shared tree."
     }
   ]
 }
