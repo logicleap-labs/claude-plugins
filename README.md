@@ -60,6 +60,15 @@ Refuses to let a turn end with half-written code. Built because "scaffold the fu
 
 → [full docs](plugins/no-stub/README.md)
 
+### `secret-guard`
+Stops a live secret from ever landing in source. Built because a hardcoded key is a leaked key — the moment it hits a tracked file it gets committed, pushed, and mirrored, and you can't un-publish it.
+
+- **Skill `secret-guard`** — the method: secrets go in `.env` (gitignored) and are read at runtime, a placeholder goes in `.env.example`, and if a key ever touched a file you rotate it.
+- **PreToolUse hook** — scans the new content of every `Edit`/`Write` and blocks the write when it carries a live-looking credential into a non-env source file: AWS (`AKIA…`), GitHub (`ghp_…`), OpenAI/Anthropic (`sk-…`/`sk-ant-…`), Stripe live (`sk_live_…`/`pk_live_…`), Google (`AIza…`), Slack (`xox…`), `-----BEGIN PRIVATE KEY-----`, and hardcoded `api_key = "…"` literals. Allows `.env`/`*.example` files, env reads (`process.env`/`os.environ`), and placeholders; fails open; kill switch (`touch .secret-guard-off`). Override one fake-but-shaped fixture with `SECRET-GUARD: ALLOW — <reason>`.
+- **`/secret-guard:secret-guard`** — on-demand scan of your session's edits for secrets.
+
+→ [full docs](plugins/secret-guard/README.md)
+
 ## What this is
 
 The start of a longer-term project: open-sourcing the tools and techniques behind how I actually use AI to build production software. More plugins, comparisons, and write-ups coming — follow along on [X](https://x.com/logicleaplabs) (and a YouTube channel soon).

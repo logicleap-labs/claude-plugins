@@ -1,0 +1,6 @@
+{
+  "name": "secret-guard",
+  "version": "0.1.0",
+  "description": "Stops a live secret from ever landing in source. A PreToolUse hook scans the new content of every Edit/Write for real-looking credentials — AWS keys, GitHub/OpenAI/Stripe/Slack tokens, Google keys, private keys, hardcoded api_key literals — and blocks the write before it hits a tracked file. Allows .env files, placeholders, and env reads; fails open.",
+  "author": { "name": "Josh Matthews" }
+}

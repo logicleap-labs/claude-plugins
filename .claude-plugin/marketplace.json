@@ -28,6 +28,11 @@
       "name": "no-stub",
       "source": "./plugins/no-stub",
       "description": "Blocks 'done' when the code you just wrote is half-written. Skill + Stop hook: detect stub/placeholder markers — TODO/FIXME, NotImplementedError, empty `...` bodies, 'your code here' — in code edited this turn, and refuse the turn until it's real or marked NO-STUB: INTENTIONAL. Stops 'scaffold the function → leave a TODO → done' from shipping."
+    },
+    {
+      "name": "secret-guard",
+      "source": "./plugins/secret-guard",
+      "description": "Stops a live secret from ever landing in source. A PreToolUse hook scans the new content of every Edit/Write for real-looking credentials — AWS keys, GitHub/OpenAI/Stripe/Slack tokens, Google keys, private keys, hardcoded api_key literals — and blocks the write before it hits a tracked file. Allows .env files, placeholders, and env reads (process.env / os.environ); fails open."
     }
   ]
 }
