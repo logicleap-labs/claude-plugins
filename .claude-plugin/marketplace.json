@@ -43,6 +43,11 @@
       "name": "no-debug",
       "source": "./plugins/no-debug",
       "description": "Blocks 'done' when the code you just wrote still has leftover debug noise. Skill + Stop hook: detect high-signal debug markers — console.log/debugger, pdb.set_trace/breakpoint, binding.pry/byebug, dd()/var_dump, dbg!(), debug-ish prints — in code edited this turn, and refuse the turn until it's stripped or marked NO-DEBUG: INTENTIONAL. Lets console.error/warn and real loggers through. Stops 'add a console.log to check → forget it → done' from shipping."
+    },
+    {
+      "name": "no-swallow",
+      "source": "./plugins/no-swallow",
+      "description": "Blocks 'done' when the code you just wrote silently swallows an error. Skill + Stop hook: detect caught exceptions that are neither handled, logged, re-raised, nor returned — `except: pass`, empty `catch (e) {}`, `.catch(() => {})`, empty `if err != nil {}` — in code edited this turn, and refuse the turn until the error is dealt with or marked NO-SWALLOW: INTENTIONAL. Heuristic and fail-open: a handler that logs, re-raises, returns, or sets error state is never flagged; Swift try? and fallback imports pass. Stops 'wrap it in a try so it stops crashing → leave the catch empty → done' from shipping."
     }
   ]
 }

@@ -91,6 +91,15 @@ Refuses to let a turn end with leftover debug noise. Built because "add a `conso
 
 → [full docs](plugins/no-debug/README.md)
 
+### `no-swallow`
+Refuses to let a turn end with a silently-swallowed error. Built because "wrap it in a try so it stops crashing → leave the `catch` empty → done" deletes the evidence of a failure that still happened, leaving the next person no log, no stack trace, no signal.
+
+- **Skill `no-swallow`** — find every handler you added, then pick one of four real outcomes: handle the error, log it, re-raise it, or return a real fallback. An empty `pass`/`{}` is none of those.
+- **Stop hook** — blocks end-of-turn when code edited this turn contains a caught error whose body does nothing: Python `except: pass` / `except X: pass` / multi-line `except` bodies that are only `pass`/`...`/`continue`/`break`; JS/TS empty `catch (e) {}` / `catch {}` and trivial `.catch(() => {})` / `.catch(() => null)` / `.catch(function(){})`; empty `catch (...) {}` in Java/Kotlin/C#/C++/Swift; and the clearly-empty Go `if err != nil {}`. Never flags a handler that logs (`logger.error`/`console.error`), re-raises (`raise`/`throw`), returns, sets error state (`setError(e)`), or calls a real handler (`.catch(handleError)`); Swift `try?` and fallback imports pass. Heuristic, so it fails open on any ambiguity, kill switch (`touch .no-swallow-off`). Override a deliberate best-effort swallow with `NO-SWALLOW: INTENTIONAL — <reason>`.
+- **`/no-swallow:no-swallow`** — on-demand scan-and-fix sweep of your session's edits.
+
+→ [full docs](plugins/no-swallow/README.md)
+
 ## What this is
 
 The start of a longer-term project: open-sourcing the tools and techniques behind how I actually use AI to build production software. More plugins, comparisons, and write-ups coming — follow along on [X](https://x.com/logicleaplabs) (and a YouTube channel soon).

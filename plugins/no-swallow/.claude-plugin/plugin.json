@@ -1,0 +1,6 @@
+{
+  "name": "no-swallow",
+  "version": "0.1.0",
+  "description": "Blocks turns that end with a silently-swallowed error. A skill for handling caught errors properly and a Stop hook that detects swallowed exceptions — `except: pass`, empty `catch (e) {}`, `.catch(() => {})`, empty `if err != nil {}` — in code edited this turn, refusing 'done' until the error is handled, logged, re-raised, or returned, or you explicitly mark it NO-SWALLOW: INTENTIONAL. Heuristic and fail-open: a handler that logs, re-raises, or returns is never flagged.",
+  "author": { "name": "Josh Matthews" }
+}
