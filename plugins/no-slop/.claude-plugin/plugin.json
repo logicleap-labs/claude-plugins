@@ -1,0 +1,6 @@
+{
+  "name": "no-slop",
+  "version": "0.1.0",
+  "description": "Blocks turns that end with AI-tell 'slop' prose. A skill for writing plainly and a Stop hook that scans prose you wrote this turn (.md/.mdx/.txt/.rst) for high-precision clichés — 'delve into', 'testament to', 'navigate the complexities', 'rich tapestry', em-dash pile-ups — and refuses 'done' until the slop is cut or you mark it NO-SLOP: INTENTIONAL.",
+  "author": { "name": "Josh Matthews" }
+}

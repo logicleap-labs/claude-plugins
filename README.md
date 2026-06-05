@@ -73,6 +73,15 @@ Stops a live secret from ever landing in source. Built because a hardcoded key i
 
 → [full docs](plugins/secret-guard/README.md)
 
+### `no-slop`
+Refuses to let a turn end with AI-tell "slop" prose. The writing complement to `no-stub` — built because "write the README → pad it with `delve into` and `a testament to` → done" ships copy that loses the reader's trust the moment they spot the tells.
+
+- **Skill `no-slop`** — find the tell, cut it, keep the plain claim underneath (the rewrite is always shorter), one idea per sentence, no throat-clearing.
+- **Stop hook** — blocks end-of-turn when prose edited this turn (`.md`/`.mdx`/`.txt`/`.rst`) carries 2+ distinct high-precision AI tells: `delve into`, `it's worth noting that`, `in today's fast-paced world`, `navigate the complexities`, `rich tapestry`, `a testament to`, `unlock the full potential`, `seamlessly integrate`, `elevate your`, `furthermore` + `moreover` stacked, em-dash pile-ups. Only scans added prose, ignores code, never fires on bare common words ("leverage"/"robust"), one stray cliché never blocks, fails open, kill switch (`touch .no-slop-off`). Override deliberate slop (quoting it as an example) with `NO-SLOP: INTENTIONAL — <reason>`.
+- **`/no-slop:no-slop`** — on-demand scan-and-rewrite sweep of your session's prose.
+
+→ [full docs](plugins/no-slop/README.md)
+
 ## What this is
 
 The start of a longer-term project: open-sourcing the tools and techniques behind how I actually use AI to build production software. More plugins, comparisons, and write-ups coming — follow along on [X](https://x.com/logicleaplabs) (and a YouTube channel soon).

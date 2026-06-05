@@ -33,6 +33,11 @@
       "name": "secret-guard",
       "source": "./plugins/secret-guard",
       "description": "Stops a live secret from ever landing in source. A PreToolUse hook scans the new content of every Edit/Write for real-looking credentials — AWS keys, GitHub/OpenAI/Stripe/Slack tokens, Google keys, private keys, hardcoded api_key literals — and blocks the write before it hits a tracked file. Allows .env files, placeholders, and env reads (process.env / os.environ); fails open."
+    },
+    {
+      "name": "no-slop",
+      "source": "./plugins/no-slop",
+      "description": "Blocks 'done' when the prose you just wrote reads like AI slop. Skill + Stop hook: detect high-precision AI tells — 'delve into', 'it's worth noting that', 'a testament to', 'navigate the complexities', 'rich tapestry', em-dash pile-ups — in prose edited this turn (.md/.mdx/.txt/.rst), and refuse the turn until it's plain or marked NO-SLOP: INTENTIONAL. The prose complement to no-stub. Stops 'write the README → pad it with clichés → done' from shipping."
     }
   ]
 }
