@@ -13,6 +13,11 @@
       "name": "visual-quality",
       "source": "./plugins/visual-quality",
       "description": "A hard quality gate for any work with pixels. Forces transcribe-before-you-judge review of the ACTUAL rendered UI (Xcode/SwiftUI, web, Electron, mockups), a Stop hook that blocks 'done' when UI was edited/screenshotted but never reviewed, an automated QC command, and an independent adversarial reviewer subagent. Stops 'compiles → screenshot → looks good → done' from shipping obvious defects."
+    },
+    {
+      "name": "verify-before-done",
+      "source": "./plugins/verify-before-done",
+      "description": "Blocks 'done' when code changed but nothing was run to verify it. Skill + Stop hook: require test/build/lint/smoke evidence or VERIFY-BEFORE-DONE: PASS. Stops 'edited the handler → should work → done' without proof."
     }
   ]
 }

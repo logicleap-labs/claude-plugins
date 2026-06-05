@@ -33,6 +33,15 @@ A hard quality gate for anything with pixels. Built because Claude kept doing `c
 
 → [full docs](plugins/visual-quality/README.md)
 
+### `verify-before-done`
+Forces evidence before "done" on any code change. Built because "clean compile" and "updated the handler" kept shipping without a test, build, or smoke run.
+
+- **Skill `verify-before-done`** — pick the smallest proof → run it → record output → sentinel line.
+- **Stop hook** — blocks end-of-turn when code was edited but nothing verified. Fails open, kill switch (`touch .verify-before-done-off`).
+- **`/verify-before-done:verify`** — on-demand verification checklist.
+
+→ [full docs](plugins/verify-before-done/README.md)
+
 ## What this is
 
 The start of a longer-term project: open-sourcing the tools and techniques behind how I actually use AI to build production software. More plugins, comparisons, and write-ups coming — follow along on [X](https://x.com/logicleaplabs) (and a YouTube channel soon).

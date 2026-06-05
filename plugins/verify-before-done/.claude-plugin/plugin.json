@@ -1,0 +1,6 @@
+{
+  "name": "verify-before-done",
+  "version": "0.1.0",
+  "description": "Blocks 'done/fixed/working' turns when code changed but nothing was actually run to verify it. A skill for evidence-based completion and a Stop hook that enforces test/build/run proof — or an explicit VERIFY-BEFORE-DONE: PASS line.",
+  "author": { "name": "Josh Matthews" }
+}
