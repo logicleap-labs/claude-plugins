@@ -23,6 +23,11 @@
       "name": "scope-guard",
       "source": "./plugins/scope-guard",
       "description": "Keeps an agent in its lane. Declare the files a task may touch (a .scope-guard file, an env var, or a SCOPE-GUARD: sentinel) and a PreToolUse hook blocks any Edit/Write outside that set — stopping drive-by edits, 'while I'm here' refactors, and one agent clobbering another's files on a shared tree."
+    },
+    {
+      "name": "no-stub",
+      "source": "./plugins/no-stub",
+      "description": "Blocks 'done' when the code you just wrote is half-written. Skill + Stop hook: detect stub/placeholder markers — TODO/FIXME, NotImplementedError, empty `...` bodies, 'your code here' — in code edited this turn, and refuse the turn until it's real or marked NO-STUB: INTENTIONAL. Stops 'scaffold the function → leave a TODO → done' from shipping."
     }
   ]
 }

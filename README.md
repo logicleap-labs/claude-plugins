@@ -51,6 +51,15 @@ Keeps an agent in its lane. Built because the most expensive edits are the ones 
 
 → [full docs](plugins/scope-guard/README.md)
 
+### `no-stub`
+Refuses to let a turn end with half-written code. Built because "scaffold the function → leave a `# TODO: implement` → done" quietly moves the work back to the human, who finds it at runtime instead of in the reply.
+
+- **Skill `no-stub`** — catch the placeholder reflex, finish the path (the answer is usually already in the repo), and declare genuinely intentional stubs *out loud* instead of leaving leftovers.
+- **Stop hook** — blocks end-of-turn when code edited this turn still contains stub markers: `TODO`/`FIXME`/`XXX`/`HACK`, `NotImplementedError`/`todo!()`/`throw new Error("not implemented")`, empty `...` bodies, "your code here". Only scans added code, ignores docs, dodges JS spreads and type-hint ellipses, fails open, kill switch (`touch .no-stub-off`). Override a true intentional stub with `NO-STUB: INTENTIONAL — <reason>`.
+- **`/no-stub:no-stub`** — on-demand scan-and-finish sweep of your session's edits.
+
+→ [full docs](plugins/no-stub/README.md)
+
 ## What this is
 
 The start of a longer-term project: open-sourcing the tools and techniques behind how I actually use AI to build production software. More plugins, comparisons, and write-ups coming — follow along on [X](https://x.com/logicleaplabs) (and a YouTube channel soon).

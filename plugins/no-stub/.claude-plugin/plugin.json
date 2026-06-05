@@ -1,0 +1,6 @@
+{
+  "name": "no-stub",
+  "version": "0.1.0",
+  "description": "Blocks turns that end with half-written code. A skill for finishing the job and a Stop hook that detects placeholder/stub markers — TODO/FIXME, NotImplementedError, 'your code here', empty `...` bodies — in code edited this turn, refusing 'done' until the code is real or you explicitly mark it NO-STUB: INTENTIONAL.",
+  "author": { "name": "Josh Matthews" }
+}
