@@ -1,0 +1,6 @@
+{
+  "name": "accessibility-gate",
+  "version": "0.1.0",
+  "description": "Stops UI work being called done before a real accessibility pass: keyboard flow, focus visibility, labels, contrast, and reduced motion.",
+  "author": { "name": "Josh Matthews" }
+}

@@ -64,6 +64,15 @@ Refuses to let a turn end with half-written code. Built because "scaffold the fu
 
 → [full docs](plugins/no-stub/README.md)
 
+### `accessibility-gate`
+A screen that looks right can still be unusable. This Stop hook keeps UI work open until the agent records a real accessibility pass: keyboard flow, visible focus, accessible names, contrast, reduced motion, and error/loading states.
+
+- **Skill `accessibility-gate`** — the checklist for exercising semantics, not just pixels.
+- **Stop hook** — blocks UI turns without `ACCESSIBILITY-GATE: PASS — <checks and result>`. Silent on non-UI work, fails open, loop-capped, kill switch (`touch .accessibility-gate-off`).
+- **`/accessibility-gate:a11y`** — run the pass on demand.
+
+→ [full docs](plugins/accessibility-gate/README.md)
+
 ### `secret-guard`
 Stops a live secret from ever landing in source. Built because a hardcoded key is a leaked key — the moment it hits a tracked file it gets committed, pushed, and mirrored, and you can't un-publish it.
 
