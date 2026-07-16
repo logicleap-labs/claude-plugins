@@ -1,0 +1,6 @@
+{
+  "name": "migration-safety",
+  "version": "0.1.0",
+  "description": "Stops destructive DB work from running before the plan exists. A PreToolUse hook blocks destructive SQL — DROP TABLE/COLUMN, TRUNCATE, DELETE/UPDATE without WHERE, irreversible ALTERs — in Bash commands or migration-file writes unless a migration plan is declared (.migration-plan file or MIGRATION-SAFETY: ALLOW sentinel stating target, dry-run, rollback). The skill teaches the method: state target → dry-run → rollback plan → then execute.",
+  "author": { "name": "Josh Matthews" }
+}

@@ -100,6 +100,24 @@ Refuses to let a turn end with a silently-swallowed error. Built because "wrap i
 
 → [full docs](plugins/no-swallow/README.md)
 
+### `no-silent-assumptions`
+Refuses to let a turn end on unsurfaced guesses. Built because "infer the schema → assume it holds → done" buries the risk in a comment, where the human finds it as a production incident instead of a two-minute review.
+
+- **Skill `no-silent-assumptions`** — track every material guess as you make it (environment, data shape, API behavior, edge cases), verify the cheap ones, and surface the rest in a short `Assumptions:` block — one line per guess, with what breaks if it's wrong.
+- **Stop hook** — blocks end-of-turn when code added this turn carries guess-shaped language — "assuming the/that…", "guessing that…", "not sure if…", "probably works/fine", "might be null", "TODO: verify" — and no `Assumptions:` block was surfaced. Conservative on purpose: only multi-word guess phrases fire, never bare words ("assume" in an assert message or a lone "probably" passes). Only scans added code, ignores docs, fails open, kill switch (`touch .no-silent-assumptions-off`). Override a documented invariant with `NO-SILENT-ASSUMPTIONS: INTENTIONAL — <reason>`.
+- **`/no-silent-assumptions:assumptions`** — on-demand audit of your session's edits for unsurfaced guesses.
+
+→ [full docs](plugins/no-silent-assumptions/README.md)
+
+### `migration-safety`
+Stops destructive DB work from running before the plan exists. Built because destroyed data has no kill switch — a `DELETE` that forgot its `WHERE` or a `DROP COLUMN` on the wrong database is the one mistake in this toolchain that can't be reverted.
+
+- **Skill `migration-safety`** — the method: state the exact target (which database, which table, how many rows) → dry-run the blast radius (`SELECT count(*)` with the same predicate) → write the rollback (backup, down-migration, or an explicit "irreversible — confirm?") → only then execute.
+- **PreToolUse hook** — blocks destructive SQL — `DROP TABLE`/`DATABASE`/`SCHEMA`, `ALTER TABLE … DROP`, `TRUNCATE`, `DELETE`/`UPDATE` without `WHERE` — in Bash commands or writes to `.sql`/migration-path files, unless a plan is declared (a `.migration-plan` file in cwd, or a `MIGRATION-SAFETY: ALLOW — <target, dry-run, rollback>` sentinel). `WHERE`-scoped deletes, additive migrations, SQL in `--` comments, and non-migration files never flag; fails open; kill switch (`touch .migration-safety-off`).
+- **`/migration-safety:migrate`** — the four-step checklist, on demand.
+
+→ [full docs](plugins/migration-safety/README.md)
+
 ## What this is
 
 The start of a longer-term project: open-sourcing the tools and techniques behind how I actually use AI to build production software. More plugins, comparisons, and write-ups coming — follow along on [X](https://x.com/logicleaplabs) (and a YouTube channel soon).

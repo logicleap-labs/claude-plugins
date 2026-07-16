@@ -1,0 +1,6 @@
+{
+  "name": "no-silent-assumptions",
+  "version": "0.1.0",
+  "description": "Blocks turns that end on unsurfaced guesses. A skill for tracking the assumptions you make while working — environment, data shape, API behavior, edge cases — and a Stop hook that detects assumption-laden language in code added this turn, refusing 'done' until they're surfaced in an 'Assumptions:' block or marked NO-SILENT-ASSUMPTIONS: INTENTIONAL. Conservative on purpose: only guess-shaped phrases fire, never bare words.",
+  "author": { "name": "Josh Matthews" }
+}

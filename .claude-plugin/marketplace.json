@@ -48,6 +48,16 @@
       "name": "no-swallow",
       "source": "./plugins/no-swallow",
       "description": "Blocks 'done' when the code you just wrote silently swallows an error. Skill + Stop hook: detect caught exceptions that are neither handled, logged, re-raised, nor returned — `except: pass`, empty `catch (e) {}`, `.catch(() => {})`, empty `if err != nil {}` — in code edited this turn, and refuse the turn until the error is dealt with or marked NO-SWALLOW: INTENTIONAL. Heuristic and fail-open: a handler that logs, re-raises, returns, or sets error state is never flagged; Swift try? and fallback imports pass. Stops 'wrap it in a try so it stops crashing → leave the catch empty → done' from shipping."
+    },
+    {
+      "name": "no-silent-assumptions",
+      "source": "./plugins/no-silent-assumptions",
+      "description": "Blocks 'done' when the turn rests on unsurfaced guesses. Skill + Stop hook: track material assumptions while working — environment, data shape, API behavior, edge cases — and surface them in a short 'Assumptions:' block before claiming done; the hook detects guess-shaped language ('assuming the…', 'not sure if…', 'probably works', 'TODO: verify') in code added this turn and refuses the turn until they're surfaced or marked NO-SILENT-ASSUMPTIONS: INTENTIONAL. Conservative and fail-open: only multi-word guess phrases fire, never bare words. Stops 'infer the schema → assume it holds → done' from shipping a silent risk."
+    },
+    {
+      "name": "migration-safety",
+      "source": "./plugins/migration-safety",
+      "description": "Stops destructive DB work from running before the plan exists. A PreToolUse hook blocks destructive SQL — DROP TABLE/COLUMN, TRUNCATE, DELETE/UPDATE without WHERE, irreversible ALTERs — in Bash commands or migration-file writes unless a migration plan is declared (.migration-plan file, or MIGRATION-SAFETY: ALLOW sentinel stating target, dry-run, rollback). The skill teaches the method: state target → dry-run → rollback plan → then execute. WHERE-scoped deletes, additive migrations, and SQL in docs pass; fails open. Stops 'clean up the old rows → forget the WHERE → gone' from ever running."
     }
   ]
 }
