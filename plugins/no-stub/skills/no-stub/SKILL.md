@@ -1,6 +1,6 @@
 ---
 name: no-stub
-description: MANDATORY before declaring code "done", "ready", or ending a turn after writing a function/handler/module. Use whenever you write or edit code and are tempted to leave a placeholder — TODO/FIXME, NotImplementedError, an empty `...` body, "your code here", "implementation goes here", a stub return, or a half-built path. Forces you to finish the job: real, working implementation, or an explicit intentional-stub declaration. Triggers on "I'll add this later", "placeholder for now", "scaffolding", "stub out", "TODO", "left as an exercise", "wire this up later".
+description: "MANDATORY before declaring code \"done\", \"ready\", or ending a turn after writing a function/handler/module. Use whenever you write or edit code and are tempted to leave a placeholder — TODO/FIXME, NotImplementedError, an empty `...` body, \"your code here\", \"implementation goes here\", a stub return, or a half-built path. Forces you to finish the job: real, working implementation, or an explicit intentional-stub declaration. Triggers on \"I'll add this later\", \"placeholder for now\", \"scaffolding\", \"stub out\", \"TODO\", \"left as an exercise\", \"wire this up later\"."
 ---
 
 # No Stub

@@ -1,6 +1,6 @@
 ---
 name: no-swallow
-description: MANDATORY before declaring code "done", "ready", or ending a turn after writing or editing anything with a try/catch, except, or error path. Use whenever you wrapped something in a handler and left the body empty — `except: pass`, `except Exception: pass`, `catch (e) {}`, `catch {}`, `.catch(() => {})`, `.catch(() => null)`, an empty `if err != nil {}` in Go. Forces you to handle the error, log it, re-raise it, or return a real fallback instead of silently swallowing it. Triggers on "just catch it for now", "ignore the error", "swallow it", "catch and move on", "wrap it in a try so it doesn't crash", "empty catch", "best-effort", "I'll handle it later".
+description: "MANDATORY before declaring code \"done\", \"ready\", or ending a turn after writing or editing anything with a try/catch, except, or error path. Use whenever you wrapped something in a handler and left the body empty — `except: pass`, `except Exception: pass`, `catch (e) {}`, `catch {}`, `.catch(() => {})`, `.catch(() => null)`, an empty `if err != nil {}` in Go. Forces you to handle the error, log it, re-raise it, or return a real fallback instead of silently swallowing it. Triggers on \"just catch it for now\", \"ignore the error\", \"swallow it\", \"catch and move on\", \"wrap it in a try so it doesn't crash\", \"empty catch\", \"best-effort\", \"I'll handle it later\"."
 ---
 
 # No Swallow

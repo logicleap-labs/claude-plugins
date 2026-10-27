@@ -1,6 +1,6 @@
 ---
 name: secret-guard
-description: Use whenever you are about to put a credential, API key, token, or password into code — or whenever a secret already appears in a file you're editing. Triggers on "add the API key", "paste the token", "hardcode the secret", "set the password", "AWS/Stripe/OpenAI/GitHub key", "connect to <service>", "use this credential", config/setup work that wires up a third-party service, and any moment a real secret value is in hand. The rule: secrets go in the environment, never in source.
+description: "Use whenever you are about to put a credential, API key, token, or password into code — or whenever a secret already appears in a file you're editing. Triggers on \"add the API key\", \"paste the token\", \"hardcode the secret\", \"set the password\", \"AWS/Stripe/OpenAI/GitHub key\", \"connect to <service>\", \"use this credential\", config/setup work that wires up a third-party service, and any moment a real secret value is in hand. The rule: secrets go in the environment, never in source."
 ---
 
 # Secret Guard

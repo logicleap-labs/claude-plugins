@@ -1,6 +1,6 @@
 ---
 name: migration-safety
-description: MANDATORY before any destructive database or schema work — DROP TABLE/COLUMN, TRUNCATE, DELETE or UPDATE across rows, irreversible ALTERs, data backfills, schema migrations. Forces the method: state the exact target → dry-run to count what's affected → write the rollback → only then execute. Triggers on "drop the table", "delete the old rows", "clean up the data", "truncate", "remove the column", "write a migration", "alter the schema", "backfill", any raw SQL against a real database.
+description: "MANDATORY before any destructive database or schema work — DROP TABLE/COLUMN, TRUNCATE, DELETE or UPDATE across rows, irreversible ALTERs, data backfills, schema migrations. Forces the method: state the exact target → dry-run to count what's affected → write the rollback → only then execute. Triggers on \"drop the table\", \"delete the old rows\", \"clean up the data\", \"truncate\", \"remove the column\", \"write a migration\", \"alter the schema\", \"backfill\", any raw SQL against a real database."
 ---
 
 # Migration Safety
